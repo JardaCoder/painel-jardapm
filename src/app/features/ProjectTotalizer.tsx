@@ -6,23 +6,17 @@ interface ProjectTotalizerProps {
   projects: ProjectDto[];
 }
 
-export default function ProjectTotalizer({
-  projects = [],
-}: ProjectTotalizerProps) {
+export default function ProjectTotalizer({ projects = [] }: ProjectTotalizerProps) {
   return (
     <Wrapper>
-      <ValueDescriptor
-        description="Total de projetos"
-        value={projects.length}
-        color="primary"
-      />
+      <ValueDescriptor description="Total de projetos" value={projects.length} color="primary" />
       <ValueDescriptor
         description="Projetos finalizados"
         value={projects.filter((p) => p.finished === "YES").length}
         color="primary"
       />
       <ValueDescriptor
-        description="Projetos em que terminaram ou estão em atraso"
+        description="Projetos que terminaram ou estão em atraso"
         value={projects.filter((p) => p.late === "YES").length}
         color="primary"
       />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FormHTMLAttributes, ReactHTMLElement, useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import Button from "../components/Button/Button";
 import Input from "../components/Input/Input";
@@ -16,22 +16,16 @@ export default function ProjectForm() {
 
   const [body, setBody] = useState<Project>({} as Project);
   const [activities, setActivities] = useState<ProjectActivity[]>([]);
+  const formRef = useRef<any>(null);
 
   //Hooks personalizados.
-  const {
-    saveProject,
-    updateProject,
-    deleteProject,
-    getProjectDetails,
-  } = useProject();
+  const { saveProject, updateProject, deleteProject, getProjectDetails } = useProject();
 
   //----- Metodos do projeto
   async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
-      let project = body.id
-        ? await updateProject(body)
-        : await saveProject(body);
+      let project = body.id ? await updateProject(body) : await saveProject(body);
 
       if (project && project.id) {
         setBody(project);
@@ -65,6 +59,10 @@ export default function ProjectForm() {
           }
         });
       } catch (error) {}
+    } else {
+      formRef.current?.reset();
+      setBody({} as Project);
+      setActivities([] as ProjectActivity[]);
     }
   }, [editing]);
 
@@ -76,7 +74,7 @@ export default function ProjectForm() {
 
   return (
     <>
-      <PostFormWrapper onSubmit={handleFormSubmit}>
+      <PostFormWrapper onSubmit={handleFormSubmit} ref={formRef}>
         <Input
           label="Nome"
           placeholder="Jarda Project Manager"
@@ -106,20 +104,9 @@ export default function ProjectForm() {
         />
 
         <Button variant="primary" label="Salvar projeto" type="submit" />
-        {body.id && (
-          <Button
-            variant="danger"
-            label="Apagar projeto"
-            type="button"
-            onClick={handleDeleteProject}
-          />
-        )}
+        {body.id && <Button variant="danger" label="Apagar projeto" type="button" onClick={handleDeleteProject} />}
       </PostFormWrapper>
-      <ActivityForm
-        projectId={body.id}
-        activities={activities}
-        setActivities={setActivities}
-      />
+      <ActivityForm projectId={body.id} activities={activities} setActivities={setActivities} />
     </>
   );
 }
