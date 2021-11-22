@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# Jarda Project Manager Painel.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="left">Esse Painel foi desenvolvido como parte de um projeto 
+simples onde você pode cadastrar um projeto, atividades para o mesmo estipulando datas de entrega e se o projeto está dentro/fora do prazo de entrega.</p>
 
-## Available Scripts
+---
+## Conteúdos
 
-In the project directory, you can run:
+<p align="center">
+ <a href="#pré-requisitos">Pré requisitos</a> 
+ <a href="#como-rodar">Como rodar</a> 
+ <a href="#tecnologias">Tecnologias</a> 
+</p>
 
-### `yarn start`
+<h4 align="center"> 
+ ⚠️ Projeto em andamento ⚠️
+</h4>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+## Pré requisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Este repositório contém apenas o front-end da aplicação, você encontra o back-end que vai ser necessário [aqui](https://github.com/JardaCoder/jardapm-api)
 
-### `yarn build`
+- NojeJS v10+ instalado;
+- Caso deseje alterar código, alguma ide de sua preferência (eu uso o vsCode);
+- Não é obrigatório, mas eu costumo usar mais o yarn como gerenciador de pacotes;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Como rodar
 
-### `yarn eject`
+Após clonar o projeto com um git clone, você deve:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Para rodar o projeto e ter comunicação com Api você precisa estar com o [back-end](https://github.com/JardaCoder/jardapm-api) rodando;
+- A configuração de apontamento para url fica em src/core/services/api.ts;
+- Rodar um yarn/npm install no diretório raiz;
+- Após isso, basta rodar um "yarn start" para ter acesso a aplicação ou um "yarn storybook" para ter acesso a documentação de componentes;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Tecnologias
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [React.js](https://pt-br.reactjs.org)
+- [Typescript](https://www.typescriptlang.org)
+- [Storybook](https://storybook.js.org)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
